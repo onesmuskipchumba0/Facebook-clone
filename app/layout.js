@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import {FaFacebook, FaSearch } from "react-icons/fa"
+import {SiFacebook} from 'react-icons/si'
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -18,10 +19,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" dta-theme='dark'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Nav bar */}
+        <nav className="pt-3">
+          {/* Search bar */}
+          <div className="flex flex-row items-center ml-2">
+            <SiFacebook size={32} color="#1877F2"/>
+            <div className="flex flex-row items-center ml-2 rounded-2xl bg-base-200 px-2 gap-3">
+              <FaSearch size={16} />
+              <input type="text" className="px-5 py-1 focus:outline-none bg-transparent" placeholder="search facebook"/>
+            </div>
+          </div>
+        </nav>
         {children}
       </body>
     </html>
