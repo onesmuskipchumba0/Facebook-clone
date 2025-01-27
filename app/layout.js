@@ -50,9 +50,9 @@ export default function RootLayout({ children }) {
           </div>
           {/* Right div */}
           <div className="flex flex-row ml-auto mr-5 items-center gap-3 lg:gap-5 md:gap-5 sm:gap-2">
-            <Link href={"/"}><FiGrid size={24}/></Link>
-            <Link href={"/"}><FaFacebookMessenger size={24}/></Link>
-            <Link href={"/"}><IoNotificationsSharp size={24}/></Link>
+            <Link href={"/more"}><FiGrid size={24}/></Link>
+            <Link href={"/messages"}><FaFacebookMessenger size={24}/></Link>
+            <Link href={"/notifications"}><IoNotificationsSharp size={24}/></Link>
           </div>
         </nav>
         {children}
