@@ -43,13 +43,13 @@ export default function Home() {
     </div>
 
     {/* Center main content */}
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-1/2">
 
     </div>
     {/* Right nav */}
-    <div className="items-center">
+    <div className="items-center ml-auto mr-5">
       {friends.map((e,i)=>(
-        <div key={i} className="flex flex-row items-center gap-2">
+        <div key={i} className="flex flex-row items-center gap-2 ">
           <div className="bg-slate-400 rounded-full w-12 h-12 my-3"></div>
           {e}
         </div>
