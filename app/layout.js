@@ -9,6 +9,16 @@ import { IoNotificationsSharp } from "react-icons/io5";
 
 
 import Link from "next/link";
+
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
+
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -26,10 +36,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    <ClerkProvider>
     <html lang="en" dta-theme='dark'>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      >    
         {/* Nav bar */}
         <nav className="pt-3 mb-5 flex flex-row items-center">
           {/* Search bar */}
@@ -53,10 +64,18 @@ export default function RootLayout({ children }) {
             <Link href={"/more"}><FiGrid size={24}/></Link>
             <Link href={"/messages"}><FaFacebookMessenger size={24}/></Link>
             <Link href={"/notifications"}><IoNotificationsSharp size={24}/></Link>
+            <SignedOut>
+              <SignInButton/>
+            </SignedOut>
+            <SignedIn>
+              <UserButton/>
+            </SignedIn>
           </div>
         </nav>
         {children}
+       
       </body>
     </html>
+    </ClerkProvider>
   );
 }
